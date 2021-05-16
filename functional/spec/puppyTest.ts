@@ -4,12 +4,16 @@ import * as puppyPage from "../pages/puppyPage"
 import * as puppyLocator from "../locators/puppy"; 
 const puppy1 = "Brook";
 const puppy2 = "Sparky";
+
 const completeAdoption = "Complete Adoption";
 const addedItem = "Checked accessory";
-const placeOrder = "Pace order";
+const addedAnotherItem = "Checked another accessory";
+const placeOrder = "Place order";
 const name = faker.name.firstName() +" "+ faker.name.firstName();
 const address = faker.address.streetAddress();
-const email = name + "@example.com";;
+const email = name + "@example.com";
+const checkType = "Check";
+const creditType = "Credit";
 
 
 /**
@@ -46,10 +50,10 @@ describe("Verify functionality for the adopting puppies, buying accessories and 
         try {
           await puppyPage.viewNAddPup(puppyLocator.viewBrookPupBtn, puppy1);
           await puppyPage.clickItOrPupIt(puppyLocator.chewToy, addedItem);
-          await puppyPage.clickItOrPupIt(puppyLocator.carrier, addedItem + "again");
+          await puppyPage.clickItOrPupIt(puppyLocator.carrier, addedAnotherItem);
           await puppyPage.clickItOrPupIt(puppyLocator.completeAdoptionBtn, completeAdoption);
           await puppyPage.fillPymtForm(name, address, email);
-          await puppyPage.clickListboxOption(puppyLocator.payTypeListBox, "Check");
+          await puppyPage.clickListboxOption(puppyLocator.payTypeListBox, checkType);
           await puppyPage.clickItOrPupIt(puppyLocator.placeOrderBtn, placeOrder);
         } catch (error) {
           console.error(error);

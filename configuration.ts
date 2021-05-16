@@ -1,4 +1,3 @@
-//import Jasmine2HtmlReporter from "protractor-jasmine2-html-reporter";
 import { Config, browser, by } from "protractor";
 
 export const getCapabilities = () => {
@@ -21,46 +20,16 @@ export const getCapabilities = () => {
   };
 };
 
-type SuiteMap = { [key: string]: string };
-type Suites = { [key: string]: string | string[] };
-
-
-const adoptAGoGo: SuiteMap = {
-  puppyRun: "functional/specs/puppyTest.js",
-};
-
-const getSuites = (): Suites => ({
-    ...adoptAGoGo,
-    adoptPuppiesTests: Object.values(adoptAGoGo),
-  });
-
 export const config: Config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   capabilities: getCapabilities(),
-  suites: getSuites(),
-  jasmineNodeOpts: {
-    showColors: true,
-  },
-
+  specs: ['./protractor/specs/puppyTest.js'],
   onPrepare: function () {
-    // Protractor will not wait for Angular
-    browser.waitForAngularEnabled(false);
     var width = 1325;
     var height = 744;
     browser.driver.manage().window().setSize(width, height);
-    // jasmine.getEnv().addReporter(
-    //   new Jasmine2HtmlReporter({
-    //     savePath: "./target/",
-    //     screenshotsFolder: "images",
-    //     takeScreenshots: true,
-    //     takeScreenshotsOnlyOnFailures: false,
-    //     fileName: "index.html",
-    //     fileNameDateSuffix: false,
-    //     showPassed: false,
-    //   })
-    // );
-    //To identify data test id locator
+
     by.addLocator("testId", function (value: any, parentElement: Document) {
       parentElement = parentElement || document;
       var nodes = parentElement.querySelectorAll("[data-testid]");
