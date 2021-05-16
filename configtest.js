@@ -4,8 +4,8 @@ exports.config = {
   seleniumAddress: "http://hub-cloud.browserstack.com/wd/hub",
 
   capabilities: {
-    "browserstack.user": "autobooks1",
-    "browserstack.key": "duFtxPyVHokQsRfYxiJR",
+    "browserstack.user": "kelseywinzeler_kFBhmK",
+    "browserstack.key": "sW85gBn8tVqjLEPEUKma    ",
     "browserstack.local": true,
     browserName: "chrome",
     name: "Bstack-[Protractor] Local Test",
