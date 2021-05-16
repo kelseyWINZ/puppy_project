@@ -1,6 +1,5 @@
 //import Jasmine2HtmlReporter from "protractor-jasmine2-html-reporter";
-import { Config, browser } from "protractor";
-import { by } from "protractor";
+import { Config, browser, by } from "protractor";
 
 export const getCapabilities = () => {
   let browserToUse = "chrome-headful";
@@ -36,7 +35,7 @@ const getSuites = (): Suites => ({
   });
 
 export const config: Config = {
-  seleniumAddress: 'http://puppies.herokuapp.com/',
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   capabilities: getCapabilities(),
   suites: getSuites(),

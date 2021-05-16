@@ -8,10 +8,10 @@
   "private": true,
   "scripts": {
     "test": "jasmine",
-    "headful": "./node_modules/.bin/protractor ./configuration.js --suite adoptAGoGo --browserToUse=chrome-headful --disableChecks",
     "suite": "./node_modules/.bin/protractor ./configuration.js --browserToUse=chrome-headful --disableChecks --suite"
   },
   "devDependencies": {
+    "@types/faker": "^5.5.5",
     "@types/jasmine": "^3.7.4",
     "@types/node": "^15.3.0",
     "@wdio/jasmine-framework": "^7.5.3",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "chromedriver": "^90.0.0",
+    "faker": "^5.5.3",
     "jasmine": "^3.7.0",
     "selenium-webdriver": "^4.0.0-beta.3",
     "winston": "^3.3.3"
