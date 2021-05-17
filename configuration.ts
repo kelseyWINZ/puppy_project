@@ -24,7 +24,7 @@ export const config: Config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   capabilities: getCapabilities(),
-  specs: ['./protractor/specs/puppyTest.js'],
+  specs: ['functional/spec/puppyTest.js'],
   onPrepare: function () {
     var width = 1325;
     var height = 744;
